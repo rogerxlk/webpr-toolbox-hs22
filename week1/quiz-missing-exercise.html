@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+
+
+//Lösung: Q3a
+function id (x) {
+    return x;
+}
+
+/* TEST Q3a
+const x_ = Math.random();
+document.writeln((id(x_) === x_).toString());
+document.writeln(id(x_).toString());
+document.writeln((x_).toString());
+*/
+
+
+
+//Lösung: Q3b
+const plus = x => y => (x+y);
+
+/* TEST Q3b
+const x_ = Math.random();
+const y_ = Math.random();
+const plus3 = plus(3);
+document.writeln( (plus(x_)(y_) === x_ + y_).toString() );
+document.writeln( (plus3(y_) === y_+3).toString());
+document.writeln( (plus(x_)(y_) === x_ + y_ && plus3(y_) === y_+3).toString());
+
+document.writeln((x_).toString());
+document.writeln((y_).toString());
+document.writeln((plus(x_)(y_)).toString());
+*/
+
+</script>
+</body>
+</html>
