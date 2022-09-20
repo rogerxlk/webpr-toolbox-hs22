@@ -1,0 +1,38 @@
+# Default ignored files
+/.idea/shelf/
+/workspace.xml
+
+# Editor-based HTTP Client requests
+/httpRequests/
+
+# Datasource local storage ignored files
+/dataSources/
+/dataSources.local.xml
+
+# Maven output dir
+/target/
+
+# Eclipse
+.classpath
+.factorypath
+.project
+.settings
+
+# IntelliJ
+*.iml
+.idea/
+
+# Vim
+.attach*
+
+# VsCode
+.vscode/
+
+# MacOS
+.DS_Store
+
+# Windows
+Thumbs.db
+
+.idea
+*.idea
