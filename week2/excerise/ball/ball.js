@@ -24,7 +24,6 @@ function nextBoard() {
     // calculate new position
     // calculate any changes in velocity due to gravitational pull or medium resistance
 
-
 }
 
 function display(context) {
