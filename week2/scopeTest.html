@@ -7,16 +7,56 @@
 <body>
     <script>
 
-        let x = 0;
-        // (() => {
-            let x = 1;
-            document.writeln(x);
+        // let x = 0;
+        // // (() => {
+        // function  foo() {
+        // let x = 1;
+        //     document.writeln(String(x));
         // })();
-        document.writeln(x);
+        // document.writeln(x);
+        //
+        //
+        // //option 1 function declration
+        // function foo1(){
+        //     const x = 1;
+        //     document.writeln(String(x));
+        // }
+        //
+        // //option 2a. function delcration
+        // //immediately invoked function expression. The last () calls the function immediately
+        // (function () {
+        //     const x = 1;
+        //     document.writeln(String(x));
+        // })();
+        //
+        // //option 2b.
+        // (() => {
+        //     const x = 1;
+        //     document.writeln(String(x));
+        // })();
 
-        // document.writeln( id(id) === id);
-        // document.writeln( Konst(id)(undefined) === id);
-        // document.writeln( Kite(undefined)(id) === id);
+        // const id = x => x; //alpha translation
+        const id = y => y; //
+        //konst nihmt ein x und ein y entgegen & gibt immer das erste zurück
+        const konst = x => y => x;
+        //kite nihmt ein x und ein y entgegen & gibt immer das zweite zurück
+        // const kite = x => y => y;
+        //
+        // const kite = x => y => id(y); // eta (Reduktion von "y")
+        //
+        // const kite = x => id; //erweitern um konst
+        //
+        // const kite = x => konst(id)(x) //eta (Reduktion von "x")
+
+        const kite = konst(id)
+
+
+
+        document.writeln( id(0) === 0);
+        document.writeln( konst(id)(undefined) === id);
+        document.writeln( konst(konst)(undefined) === konst);
+
+        document.writeln( kite(undefined)(id) === id);
 
     </script>
 </body>
