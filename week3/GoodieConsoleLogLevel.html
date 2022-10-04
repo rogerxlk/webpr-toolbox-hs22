@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+
+</head>
+<body>
+<div id="out">Out:</div>
+<div><button onclick="logAll()">Log</button></div>
+<pre>
+<script>
+
+    const longRunning = x => {
+        out.textContent += " ...";
+        setTimeout( _=> out.textContent += " " + x, 1000 * 2);
+        return x;
+    };
+
+    // starting state
+    // const logAll = () => {
+    //     console.error("error", longRunning("error"));
+    //     console.warn ("warn",  longRunning("warn") );
+    //     console.info ("info",  longRunning("info") );
+    //     console.log  ("log",   longRunning("log")  );
+    //     console.debug("debug", longRunning("debug"));
+    // }
+
+    /* constants*/
+    const LEVEL_NONE    = -1;
+    const LEVEL_ERROR   =  0;
+    const LEVEL_WARN    =  1;
+    const LEVEL_INFO    =  2;
+    const LEVEL_LOG     =  3;
+    const LEVEL_DEBUG   =  4;
+    let logLevel = LEVEL_LOG;
+
+
+    // strict version (not working as desired, yet)
+    const error = f => { if (logLevel >= LEVEL_ERROR) console.error(f()); }
+    const warn  = f => { if (logLevel >= LEVEL_WARN)  console.warn (f()); }
+    const info  = f => { if (logLevel >= LEVEL_INFO)  console.info (f()); }
+    const log   = f => { if (logLevel >= LEVEL_LOG)   console.log  (f()); }
+    const debug = f => { if (logLevel >= LEVEL_DEBUG) console.debug(f()); }
+/**/
+    const logAll = () => {
+        error( () => longRunning("error"));
+        warn ( () => longRunning("warn") );
+        info ( () => longRunning("info") );
+        log  ( () => longRunning("log")  );
+        debug( () => longRunning("debug"));
+    }
+
+
+</script>
+</pre>
+
+
+
+</body>
+
+</html>
