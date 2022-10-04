@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+
+  const Left   = x => f => g => f(x);
+  const Right  = x => f => g => g(x);
+  const either = e => f => g => e(f)(g);
+  const id     = x => x;
+
+  const saveDiv = num => divisor =>
+      divisor === 0
+          ? Left ("cannot divide by 0")
+          : Right (num / divisor);
+
+  const eShow = x => x;
+
+  //Tests
+  const x_ = Math.random();
+  document.writeln((eShow(safeDiv(1)(0)) === "Cannot divide by 0" &&
+      eShow(safeDiv(x_)(1)) === "Result is: "+x_).toString());
+
+</script>
+</body>
+</html>
