@@ -12,17 +12,29 @@
   const either = e => f => g => e(f)(g);
   const id     = x => x;
 
-  const saveDiv = num => divisor =>
+
+  const safeDiv = num => divisor =>
       divisor === 0
           ? Left ("cannot divide by 0")
           : Right (num / divisor);
 
-  const eShow = x => x;
 
-  //Tests
-  const x_ = Math.random();
-  document.writeln((eShow(safeDiv(1)(0)) === "Cannot divide by 0" &&
-      eShow(safeDiv(x_)(1)) === "Result is: "+x_).toString());
+  // let x = Math.random();
+  // let y = 1;
+
+  //TODO: solution
+  const eShow = either(safeDiv(2)(0))
+    (msg => document.writeln(msg))
+    (val => document.writeln("Result is: " + val));
+
+  // document.writeln(eShow(x)(y));
+
+
+
+  // Tests
+  // const x_ = Math.random();
+  // document.writeln((eShow(safeDiv(1)(0)) === "Cannot divide by 0" &&
+  //     eShow(safeDiv(x_)(1)) === "Result is: "+x_).toString());
 
 </script>
 </body>
