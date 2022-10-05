@@ -7,7 +7,7 @@
 <body>
 <script>
 
-  // TODO: FIRST -> Don't tick!!
+  // TODO: FIRST -> shows cannot divide by 0 -> TRUE!!
   // const Left = x => f => g => f(x);
   // const Right = x => f => g => g(x);
   // const either = e => f => g => e (f)(g);
@@ -18,25 +18,10 @@
   //
   // const result = safeDiv(1)(0);
   //
-  // either(result)
-  // (msg => document.writeln(msg));
-  // (val => document.writeln(val === 1));
+  // either(result) (msg => document.writeln(msg))
+  //   (val => document.writeln(val === 1));
 
-  // TODO: SECOND -> Tick!!
-  // const Left = x => f => g => f(x);
-  // const Right = x => f => g => g(x);
-  // const either = e => f => g => e (f)(g);
-  //
-  // const safeDiv = num => divisor => divisor === 0
-  //         ? Left ("cannot divide by 0")
-  //         : Right (num/divisor);
-  //
-  // const result = safeDiv(1)(0);
-  //
-  // either(result)
-  // (msg => document.writeln(msg));
-
-  // TODO: THIRD -> Don't tick!!
+  // TODO: SECOND -> failes silently -> TRUE!!
   // const Left = x => f => g => f(x);
   // const Right = x => f => g => g(x);
   // const either = e => f => g => e (f)(g);
@@ -50,7 +35,7 @@
   // either(result)
   // (msg => document.writeln(msg));
 
-  // TODO: Forth -> Don't tick!!
+  // TODO: THIRD -> fails with error message -> FALSE!!
   // const Left = x => f => g => f(x);
   // const Right = x => f => g => g(x);
   // const either = e => f => g => e (f)(g);
@@ -64,7 +49,20 @@
   // either(result)
   // (msg => document.writeln(msg));
 
-  // TODO: Fifth -> Don't tick!!
+  // TODO: Forth -> show0s can not divide by 0 -> FALSE!!
+  // const Left = x => f => g => f(x);
+  // const Right = x => f => g => g(x);
+  // const either = e => f => g => e (f)(g);
+  //
+  // const safeDiv = num => divisor => divisor === 0
+  //         ? Left ("cannot divide by 0")
+  //         : Right (num/divisor);
+  //
+  // const result = safeDiv(1)(0);
+  //
+  // either(result) (msg => document.writeln(msg));
+
+  // TODO: Fifth -> shows true -> TRUE!!
   // const Left = x => f => g => f(x);
   // const Right = x => f => g => g(x);
   // const either = e => f => g => e (f)(g);
@@ -77,7 +75,7 @@
   // const result = safeDiv(1)(1);
   //
   // either(result)
-  //   (msg => document.writeln(msg));
+  //   (msg => document.writeln(msg))
   //   (val => document.writeln(val === 1));
 
 </script>

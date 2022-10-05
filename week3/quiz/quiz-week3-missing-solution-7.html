@@ -7,7 +7,10 @@
 <body>
 <script>
 
-    //TODO: FIRST -> ReferenceERROR!!
+    const T = x => y => x;
+    const F = x => y => y;
+
+    //TODO: FIRST -> show true -> TRUE
     // const pair = a => b => f => f(a)(b);
     // const fst = p => p(T);
     // const snd = p => p(F);
@@ -21,7 +24,7 @@
     //
     // document.writeln(pairEq(result)(pair(1)(4)));
 
-    //TODO: SECOND -> ReferenceERROR!!
+    //TODO: SECOND -> shows true -> FALSE!!
     // const pair = a => b => f => f(a)(b);
     // const fst = p => p(T);
     // const snd = p => p(F);
@@ -30,7 +33,7 @@
     // fst(oneTwo) = 0;
     // document.writeln(fst(oneTwo) === 0);
 
-    // TODO: THIRD -> ReferenceERROR!
+    // TODO: THIRD -> throws referenceError -> FALSE!!
     // const pair = a => b => f => f(a)(b);
     // const fst = p => p(T);
     // const snd = p => p(F);
@@ -40,7 +43,7 @@
     // document.writeln(fst(oneTwo) === 0);
 
 
-    // TODO: Forth -> ReferenceERROR!
+    // TODO: Forth -> shows true -> TRUE!!
     // const pair = a => b => f => f(a)(b);
     // const fst = p => p(T);
     // const snd = p => p(F);
@@ -49,7 +52,7 @@
     // document.writeln(fst(oneTwo) === 1);
 
 
-    // TODO: Fifth -> ReferenceERROR!
+    // TODO: Fifth -> shows true -> TRUE!!
     // const pair = a => b => f => f(a)(b);
     // const fst = p => p(T);
     // const snd = p => p(F);
@@ -61,13 +64,13 @@
     // const sum = pairPlus(oneTwo)(oneTwo);
     // document.writeln(pairEq(sum)(pair(2)(4)));
 
-    // TODO: sixth -> ReferenceERROR!
-    const pair = a => b => f => f(a)(b);
-    const fst = p => p(T);
-    const snd = p => p(F);
-
-    const oneTwo = pair(1)(2);
-    document.writeln(fst(oneTwo) === 1);
+    // TODO: sixth -> shows true -> TRUE!!
+    // const pair = a => b => f => f(a)(b);
+    // const fst = p => p(T);
+    // const snd = p => p(F);
+    //
+    // const oneTwo = pair(1)(2);
+    // document.writeln(fst(oneTwo) === 1);
 
 </script>
 </body>
