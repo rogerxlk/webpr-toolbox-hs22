@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+<script>
+
+    // const times = a => b => a * b;
+    // const twoTimes = times(2);
+    //
+    // [1, 2, 3].map(x => times(2)(x)); // Result [2, 4, 6]
+    // [1, 2, 3].map(times(2)); // Eta-Reduktion
+
+    const twice = x => 2 * x;
+
+    //test
+    document.writeln([1,2,3].map(twice).toString() === "2,4,6");
+
+</script>
+</body>
+</html>

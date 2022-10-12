@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+
+    const join = x => (acc, cur) => acc + x + cur;
+
+    //test
+    document.writeln(([1,2,3].reduce(join('-'))).toString());
+    document.writeln(([1,2,3].reduce(join('-')) === '1-2-3').toString());
+
+</script>
+</body>
+</html>
