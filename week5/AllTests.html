@@ -6,14 +6,29 @@
 </head>
 <body>
 
-    <script src="function/function.js"></script>
-    <script src="function/functionTest.js"></script>
+    <script>
+        const testSuite = [
+          "function",
+          "lambda",
+          "snake"
+        ];
 
-    <script src="lambda/lambda.js"></script>
-    <script src="lambda/lambdaTest.js"></script>
+        //String unterteilen, damit Browser nicht das "</" + "script>" Tag liest!
+        testSuite.forEach(foo => {
+        document.writeln("<script src=\""+ foo +"/"+ foo + ".js\"></"+"script>");
+        document.writeln("<script src=\""+ foo +"/"+ foo + "Test.js\"></"+"script>");
+        });
 
-    <script src="snake/snake.js"></script>
-    <script src="snake/snakeTest.js"></script>
+    </script>
+
+<!--    <script src="function/function.js"></script>-->
+<!--    <script src="function/functionTest.js"></script>-->
+
+<!--    <script src="lambda/lambda.js"></script>-->
+<!--    <script src="lambda/lambdaTest.js"></script>-->
+
+<!--    <script src="snake/snake.js"></script>-->
+<!--    <script src="snake/snakeTest.js"></script>-->
 
 
 </body>

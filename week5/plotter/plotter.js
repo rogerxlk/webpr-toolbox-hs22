@@ -9,7 +9,24 @@ function start() {
     const canvas       = document.getElementById('canvas');
 
     // todo: how to display?
+    //V1:
+    // display(canvas, x => eval(userFunction.value));
+    // userFunction.onchange = () => display(canvas, x => eval(userFunction.value));
 
+    //V2:
+    // const f = () => display(canvas, x => eval(userFunction.value));
+    // f();
+    // userFunction.onchange = () => f();
+
+    //V3 eta-reduziert
+    // const f = () => display(canvas, x => eval(userFunction.value));
+    // f();
+    // userFunction.onchange = () => f();
+
+    //V4: as function()
+    const f = () => display(canvas, x => Function('x', 'return ' + userFunction.value)(x) );
+    f();
+    userFunction.onchange = () => f();
 }
 
 function display(canvas, f) {
