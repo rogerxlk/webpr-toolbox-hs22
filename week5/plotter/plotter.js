@@ -10,8 +10,8 @@ function start() {
 
     // todo: how to display?
     //V1:
-    // display(canvas, x => eval(userFunction.value));
-    // userFunction.onchange = () => display(canvas, x => eval(userFunction.value));
+    display(canvas, x => eval(userFunction.value));
+    userFunction.onchange = () => display(canvas, x => eval(userFunction.value));
 
     //V2:
     // const f = () => display(canvas, x => eval(userFunction.value));
