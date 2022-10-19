@@ -8,10 +8,14 @@
 
 <script>
 
-    const bonusCalculation = () => (employee, x => eval("bonusFormula"));
+    const bonusFormula = 'employee.revenue * 0.2';
+    //Solution
+    const bonusCalculation = Function('employee', 'return employee.bonus = ' + bonusFormula);
 
+    //Test
+    factor_ = 0.2;
     const e = {revenue: 10000, bonus: null};
-    bonusCalculation(e);
+    document.writeln(bonusCalculation(e));
     document.writeln((e.bonus === e.revenue * factor_).toString());
 
 </script>

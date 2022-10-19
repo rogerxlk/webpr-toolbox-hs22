@@ -8,15 +8,16 @@
 
 <script>
 
-    // const bonusCalculation = () => (employee, x => eval("bonusFormula"));
-    // const bonusCalculation = eval("bonusFormula");
-    //TODO
-    const bonusCalculation = () => (employee => eval('bonusFormula'));
+    const bonusFormula = 'employee.bonus = employee.revenue * 0.2';
+    //Solution
+    const bonusCalculation = (employee) => eval(bonusFormula);
 
+    // const bonusCalculation = (employee) => (employee.revenue, x => eval('bonusFormula'));
+    // const bonusCalculation = (bonusFormula) => (employee => eval(bonusFormula.value));
 
-    factor_ = Math.random();
+    //Test
     const e = {revenue: 10000, bonus: null};
-    bonusCalculation(e);
+    document.writeln(bonusCalculation(e));
     document.writeln((e.bonus === e.revenue * factor_).toString());
 
 </script>
