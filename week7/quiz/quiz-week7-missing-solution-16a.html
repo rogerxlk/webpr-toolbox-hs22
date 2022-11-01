@@ -7,6 +7,14 @@
 <body>
 <script>
 
+    const inc = x => x+1;
+    const double = x => x*2;
+
+    Number.prototype.then = function (f) {
+        return (item, index) => f(index);
+    };
+
+    document.writeln((inc.then(double).then(double) (1) === 8).toString())
 
 
 </script>

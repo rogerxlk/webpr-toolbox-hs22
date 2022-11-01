@@ -7,15 +7,17 @@
 <body>
 <script>
 
-    ```jsx
-IMPLEMENT TIMES FUNCTION FÜR ALLE ZAHLEN "NUMBER"
+    //todo: wie testen?
+    xs= []
 
-Number.prototype.times = function(f) { //braucht function keyword, damit this verfügbar ist
-	return Array.from({length: this}.map( (item, index) => f(index) );
-};
-```
-    Boolean.prototype.eq = function(f) {
-        return Array.from({length: this}.map( (item, index) => f(index) );
+    Boolean.prototype.eq = function (f, x) {
+        if (f.length === x.length) {
+            if (Array.from({length: this}.map((item, index) => f[index] === x[index]))) {
+                return true;
+            }
+        } else {
+            return false;
+        }
     };
 
     // document.writeln(xs1_.eq(ys1_) && ! xs2_.eq(ys2_) && xs3_.eq(ys3_) && ! xs3_.eq(ys4_) && ! xs4_.eq(ys3_)).toString);
