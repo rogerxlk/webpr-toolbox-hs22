@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+
+    ```jsx
+IMPLEMENT TIMES FUNCTION FÜR ALLE ZAHLEN "NUMBER"
+
+Number.prototype.times = function(f) { //braucht function keyword, damit this verfügbar ist
+	return Array.from({length: this}.map( (item, index) => f(index) );
+};
+```
+    Boolean.prototype.eq = function(f) {
+        return Array.from({length: this}.map( (item, index) => f(index) );
+    };
+
+    // document.writeln(xs1_.eq(ys1_) && ! xs2_.eq(ys2_) && xs3_.eq(ys3_) && ! xs3_.eq(ys4_) && ! xs4_.eq(ys3_)).toString);
+
+</script>
+</body>
+</html>
