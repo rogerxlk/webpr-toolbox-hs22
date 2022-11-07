@@ -7,14 +7,23 @@
 <body>
 <script>
 
-    const inc = x => x+1;
-    const double = x => x*2;
+    const inc = x => x + 1;
+    const double = x => x * 2;
 
-    Number.prototype.then = function (f) {
-        return (item, index) => f(index);
+
+    //Solution
+    Function.prototype.then = function (f) {
+
+        let that = this;
+
+        return function () {
+            return f(that.apply(null, arguments));
+        }
     };
 
-    document.writeln((inc.then(double).then(double) (1) === 8).toString())
+    //TESTS
+    document.writeln((inc.then(double)(1) === 4).toString());
+    document.writeln((inc.then(double).then(double)(1) === 8).toString())
 
 
 </script>
