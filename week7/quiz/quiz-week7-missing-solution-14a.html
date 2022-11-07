@@ -8,19 +8,41 @@
 <script>
 
     //todo: wie testen?
-    xs= []
 
-    Boolean.prototype.eq = function (f, x) {
-        if (f.length === x.length) {
-            if (Array.from({length: this}.map((item, index) => f[index] === x[index]))) {
-                return true;
-            }
-        } else {
-            return false;
-        }
-    };
+    xs1_ = 2;
+    xs2_ = 1;
+    xs3_ = 3;
+    xs4_ = 4;
+    ys1_ = 2;
+    ys2_ = 1;
+    ys3_ = 3;
+    ys4_ = 4;
 
-    // document.writeln(xs1_.eq(ys1_) && ! xs2_.eq(ys2_) && xs3_.eq(ys3_) && ! xs3_.eq(ys4_) && ! xs4_.eq(ys3_)).toString);
+    // Boolean.prototype.eq = function (f, x) {
+    //     if (f.length === x.length) {
+    //         if (Array.from({length: this}.map((item, index) => f[index] === x[index]))) {
+    //             return true;
+    //         }
+    //     } else {
+    //         return false;
+    //     }
+    // };
+
+    const a = [1, 2, 3];
+    const b = [4, 5, 6];
+    const c = [1, 2, 3];
+
+    function eq(x, y) {
+        return Array.isArray(x) &&
+            Array.isArray(y) &&
+            x.length === y.length &&
+            x.every((item, index) => item === y[index]);
+    }
+
+
+    document.writeln((eq(a,b).toString()));
+    document.writeln((eq(a,c).toString()));
+
 
 </script>
 </body>
