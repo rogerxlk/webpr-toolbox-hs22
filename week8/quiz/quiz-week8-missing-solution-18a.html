@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+
+    const doError = x => { throw new Error() };
+    const errorCount = failSafe(1) (doError);
+
+    //TODO
+    const failSafe = () => null;
+
+
+    document.writeln((failSafe(false) (x=>x) (true) &&
+        failSafe(true) (doError) (null) &&
+        errorCount(null) === 1).toString())
+
+</script>
+</body>
+</html>
