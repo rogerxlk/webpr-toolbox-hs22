@@ -32,16 +32,26 @@
     const b = [4, 5, 6];
     const c = [1, 2, 3];
 
-    function eq(x, y) {
-        return Array.isArray(x) &&
-            Array.isArray(y) &&
-            x.length === y.length &&
-            x.every((item, index) => item === y[index]);
-    }
 
+    //todo: error eq is not a function!
+    // function eq(x, y) {
+    //     return Array.isArray(x) &&
+    //         Array.isArray(y) &&
+    //         x.length === y.length &&
+    //         x.every((item, index) => item === y[index]);
+    // };
 
-    document.writeln((eq(a,b).toString()));
-    document.writeln((eq(a,c).toString()));
+    //todo: maybe like this?
+    // Function.prototype.eq = function f(x, y) {
+    //     return Array.isArray(x) &&
+    //         Array.isArray(y) &&
+    //         x.length === y.length &&
+    //         x.every((item, index) => item === y[index]);
+    // };
+    //
+    //
+    // document.writeln(eq(a,b).toString());
+    // document.writeln(eq(a,c).toString());
 
 
 </script>
