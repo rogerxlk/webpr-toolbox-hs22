@@ -14,12 +14,13 @@
     //Solution
     Function.prototype.then = function (f) {
 
-        let that = this;
+        const that = this;
 
         return function () {
             return f(that.apply(null, arguments));
         }
     };
+
 
     //TESTS
     document.writeln((inc.then(double)(1) === 4).toString());
