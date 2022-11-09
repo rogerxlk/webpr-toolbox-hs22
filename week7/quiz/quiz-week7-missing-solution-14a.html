@@ -33,25 +33,19 @@
     const c = [1, 2, 3];
 
 
-    //todo: error eq is not a function!
-    // function eq(x, y) {
-    //     return Array.isArray(x) &&
-    //         Array.isArray(y) &&
-    //         x.length === y.length &&
-    //         x.every((item, index) => item === y[index]);
-    // };
+    Array.prototype.eq = function (other) {
+        if (this.length !== other.length)
+            return false;
+        else if (this.every((item, index) =>
+            item === other[index])) {
+            return true;
+        } else{
+            return false;
+        }
+    };
 
-    //todo: maybe like this?
-    // Function.prototype.eq = function f(x, y) {
-    //     return Array.isArray(x) &&
-    //         Array.isArray(y) &&
-    //         x.length === y.length &&
-    //         x.every((item, index) => item === y[index]);
-    // };
-    //
-    //
-    // document.writeln(eq(a,b).toString());
-    // document.writeln(eq(a,c).toString());
+
+    document.writeln(a.eq(c).toString());
 
 
 </script>
