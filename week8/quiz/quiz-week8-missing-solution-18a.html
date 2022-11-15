@@ -8,10 +8,11 @@
 <script>
 
     //TODO
-    const failSafe = val => e =>
-        Boolean(val)
-            ? Right(val)
-            : Left(throw new Error(e));
+    const failSafe = (callback = () => {
+    }) => {
+        throw new Error();
+        callback();
+    };
 
 
     const doError = x => {

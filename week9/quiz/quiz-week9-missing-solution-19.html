@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+
+    const Observable = value => {
+        const listeners = [];
+        return {
+            onChange: callback => listeners.push(callback),
+            getValue: () => value,
+            setValue: val => {
+                if (value === val) return;
+                value = val;
+                listeners.forEach(listener => listener(val));
+            }
+        }
+    };
+
+    const color = Observable('white');
+    let updateCount = 0;
+    color.onChange(_ => updateCount++);
+    // color.setValue('white');
+    // let observed = color.getValue();
+    // let observed = null;
+    // color.onChange(val => observed = val);
+    // color.setValue('black');
+    color.setValue('white');
+
+    document.writeln(updateCount === 1)
+    // document.writeln( color.getValue() === 'black')
+    // document.writeln(color.getValue() === 'black')
+
+</script>
+</body>
+</html>
