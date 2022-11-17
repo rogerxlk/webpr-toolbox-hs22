@@ -7,12 +7,15 @@
 <body>
 <script>
 
-    //TODO
-    const failSafe = (callback = () => {
-    }) => {
-        throw new Error();
-        callback();
-    };
+    //Todo: Solution
+    const failSafe = defaultValue =>
+        fun => funValue => {
+            try {
+                return fun(funValue)
+            } catch {
+                return defaultValue
+            }
+        };
 
 
     const doError = x => {

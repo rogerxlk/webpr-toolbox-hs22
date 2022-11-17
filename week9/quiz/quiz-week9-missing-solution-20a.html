@@ -24,10 +24,26 @@ const Observable = value => {
     }
 };
 
+// const sum = [];
+// const sumModel = [];
+// const trackable = (newValue, oldValue) => {
+//     const sum = oldValue+ newValue;
+//     sumModel.push(oldValue);
+//     return sum;
+// };
+
 let sum = 0;
 const trackable = Observable(0);
+trackable.onChange(newValue => sum += newValue)
 
-document.
+
+const x_ = 3;
+const y_ = 2;
+const z_ = 5;
+trackable.setValue(x_);
+trackable.setValue(y_);
+trackable.setValue(z_);
+document.writeln((trackable.getValue() === z_ && sum === x_+ y_ + z_).toString());
 
 </script>
 </body>
