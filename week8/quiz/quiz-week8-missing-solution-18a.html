@@ -9,15 +9,16 @@
 
     //Todo: Solution
     const failSafe = defaultValue =>
-        fun => funValue => {
+        fun => value => {
             try {
-                return fun(funValue)
+                return fun(value)
             } catch {
                 return defaultValue
             }
         };
 
 
+    //test
     const doError = x => {
         throw new Error()
     };

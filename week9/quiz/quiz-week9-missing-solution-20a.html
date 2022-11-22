@@ -34,9 +34,11 @@ const Observable = value => {
 
 let sum = 0;
 const trackable = Observable(0);
+
+//solution
 trackable.onChange(newValue => sum += newValue)
 
-
+//test
 const x_ = 3;
 const y_ = 2;
 const z_ = 5;
