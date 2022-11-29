@@ -7,7 +7,29 @@
 <body>
 <script>
 
-    
+    const NullSafe = x => {
+        const isNullSafe = y => y && y.then;
+        const maywrap = y => ___; //if y is not NullSafe yet, make it so
+        return {
+            then: fn => ___ //see(1)
+        }
+    };
+
+    // (1) if x is not null or undefined, call fn(x); either way, make sure the result is a Nullsafe
+
+    NullSafe(1).then(console.log)
+    NullSafe(null).then(console.log);
+    NullSafe(2).then(x => null).then(console.log);
+
+    const x_ = null; //?
+    const y_ = null; //?
+
+    NullSafe(x_)
+        .then( x => x*2)
+        .then( x => NullSafe(x))
+        .then( x=> y_ = x+1)
+        .then(x => null)
+        .then(x => x.mustNotBeCalled) !== null && y_ === x_ * 2 + 1;
 
 </script>
 </body>
