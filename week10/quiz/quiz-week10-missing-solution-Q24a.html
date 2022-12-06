@@ -9,9 +9,11 @@
 
     const NullSafe = x => {
         const isNullSafe = y => y && y.then;
-        const maywrap = y => ___; //if y is not NullSafe yet, make it so
+        const maywrap = y => y != null; //if y is not NullSafe yet, make it so
         return {
-            then: fn => ___ //see(1)
+            then: fn => {
+                if(x != null) { return fn(x);} //see(1)
+            }
         }
     };
 
@@ -21,15 +23,15 @@
     NullSafe(null).then(console.log);
     NullSafe(2).then(x => null).then(console.log);
 
-    const x_ = null; //?
-    const y_ = null; //?
+    const x_ = 2; //?
+    const y_ = 3; //?
 
-    NullSafe(x_)
-        .then( x => x*2)
-        .then( x => NullSafe(x))
-        .then( x=> y_ = x+1)
+    document.writeln((NullSafe(x_)
+        .then(x => x * 2)
+        .then(x => NullSafe(x))
+        .then(x => y_ = x + 1)
         .then(x => null)
-        .then(x => x.mustNotBeCalled) !== null && y_ === x_ * 2 + 1;
+        .then(x => x.mustNotBeCalled) !== null && y_ === x_ * 2 + 1).toString());
 
 </script>
 </body>
