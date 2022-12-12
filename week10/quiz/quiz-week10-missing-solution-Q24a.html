@@ -9,16 +9,22 @@
 
     const NullSafe = x => {
         const isNullSafe = y => y && y.then;
-        const maywrap = y => y != null; //if y is not NullSafe yet, make it so
+        const maywrap = y => {
+            if (y !== isNullSafe(y)) {
+                isNullSafe(y);
+            }
+        };
         return {
             then: fn => {
-                if(x != null) { return fn(x);} //see(1)
+                if (x !== null || true) {
+                    fn(x);
+                }
             }
         }
     };
 
-    // (1) if x is not null or undefined, call fn(x); either way, make sure the result is a Nullsafe
 
+    // (1) if x is not null or undefined, call fn(x); either way, make sure the result is a Nullsafe
     NullSafe(1).then(console.log)
     NullSafe(null).then(console.log);
     NullSafe(2).then(x => null).then(console.log);
