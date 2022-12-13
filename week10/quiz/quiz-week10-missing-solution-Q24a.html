@@ -25,19 +25,17 @@
 
 
     // (1) if x is not null or undefined, call fn(x); either way, make sure the result is a Nullsafe
-    NullSafe(1).then(console.log)
-    NullSafe(null).then(console.log);
-    NullSafe(2).then(x => null).then(console.log);
+    NullSafe(1).then(console.log);                   // will call the log
+    NullSafe(null).then(console.log);                // will not call the log
+    NullSafe(2).then( x => null).then(console.log);  // will not call the log
 
-    const x_ = 2; //?
-    const y_ = 3; //?
-
-    document.writeln((NullSafe(x_)
-        .then(x => x * 2)
-        .then(x => NullSafe(x))
-        .then(x => y_ = x + 1)
-        .then(x => null)
-        .then(x => x.mustNotBeCalled) !== null && y_ === x_ * 2 + 1).toString());
+    // x_ and y_ are given. do not override.
+    NullSafe(x_)
+        .then( x => x*2)          // must auto-promote
+        .then( x => NullSafe(x))  // must not auto-promote
+        .then( x => y_ = x + 1)   // store value, check no double promotion
+        .then( x => null)         // jump over rest
+        .then( x => x.mustNotBeCalled) !== null && y_ === x_ * 2 + 1;
 
 </script>
 </body>
