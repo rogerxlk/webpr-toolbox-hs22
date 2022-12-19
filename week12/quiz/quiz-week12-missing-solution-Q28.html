@@ -9,19 +9,34 @@
 
     // USE: map/filter/reduce refresher
 
-    const str2chars = str  => [...str];            // convert a string to an array of chars
-    const isAlpha   = char => char.match(/[a-z]/); // char is in the alphabet
+    const str2chars = str => [...str];            // convert a string to an array of chars
+    const isAlpha = char => char.match(/[a-z]/); // char is in the alphabet
 
 
-    const palindrome = text => str2chars(text).then(
+    function palindrome(text) {
+        const textLowerCase = text.toLowerCase();
+        const charArray = str2chars(textLowerCase);
 
-    );
+        let newString = "";
+        for (let i = 0; i < charArray.length; i++) {
+            if (isAlpha(charArray[i])) {
+                newString += charArray[i];
+            }
+        }
+
+        console.log(newString);
+        const reversedNewText = newString.split('').reverse().join('');
+        console.log(reversedNewText);
+        return newString === reversedNewText;
+    }
 
 
-    document.writeln(palindrome("Amore, Roma!")
-    && palindrome("Madam, I'm Adam!")
-    && palindrome("Never odd or even.")
-    && ! palindrome("Amore"));
+    document.writeln(
+        (palindrome("Amore, Roma!") &&
+            palindrome("Madam, I'm Adam!") &&
+            palindrome("Never odd or even.") &&
+            !palindrome("Amore")
+        ).toString());
 
 </script>
 </body>
