@@ -11,18 +11,20 @@
         const isNullSafe = y => y && y.then;
         const maywrap = y => {
             if (y !== isNullSafe(y)) {
-                isNullSafe(y);
+                return isNullSafe(y);
             }
         };
         return {
             then: fn => {
-                if (x !== null || true) {
-                    fn(x);
+                if (typeof x !== 'undefined' || x !== null) {
+                    fn(maywrap(x));
                 }
             }
         }
     };
 
+    const x_ = 1;
+    let y_ = 2;
 
     // (1) if x is not null or undefined, call fn(x); either way, make sure the result is a Nullsafe
     NullSafe(1).then(console.log);                   // will call the log
@@ -30,12 +32,13 @@
     NullSafe(2).then( x => null).then(console.log);  // will not call the log
 
     // x_ and y_ are given. do not override.
-    NullSafe(x_)
+    NullSafe((x_
         .then( x => x*2)          // must auto-promote
         .then( x => NullSafe(x))  // must not auto-promote
         .then( x => y_ = x + 1)   // store value, check no double promotion
         .then( x => null)         // jump over rest
-        .then( x => x.mustNotBeCalled) !== null && y_ === x_ * 2 + 1;
+        // .then( x => x.mustNotBeCalled) !== null && y_ === x_ * 2 + 1
+    ).toString());
 
 </script>
 </body>
