@@ -17,17 +17,17 @@
         const textLowerCase = text.toLowerCase();
         const charArray = str2chars(textLowerCase);
 
-        let newString = "";
+        let newText = "";
         for (let i = 0; i < charArray.length; i++) {
             if (isAlpha(charArray[i])) {
-                newString += charArray[i];
+                newText += charArray[i];
             }
         }
 
-        console.log(newString);
-        const reversedNewText = newString.split('').reverse().join('');
+        console.log(newText);
+        const reversedNewText = newText.split('').reverse().join('');
         console.log(reversedNewText);
-        return newString === reversedNewText;
+        return newText === reversedNewText;
     }
 
 
