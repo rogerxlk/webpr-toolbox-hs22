@@ -12,22 +12,18 @@
     const str2chars = str => [...str];            // convert a string to an array of chars
     const isAlpha = char => char.match(/[a-z]/); // char is in the alphabet
 
-
-    function palindrome(text) {
+    function palindrome(text){
         const textLowerCase = text.toLowerCase();
         const charArray = str2chars(textLowerCase);
 
-        let newText = "";
-        for (let i = 0; i < charArray.length; i++) {
-            if (isAlpha(charArray[i])) {
-                newText += charArray[i];
-            }
-        }
+        let allAlphaText = '';
+        charArray.filter(char => isAlpha(char) ? allAlphaText += char : null);
 
-        console.log(newText);
-        const reversedNewText = newText.split('').reverse().join('');
-        console.log(reversedNewText);
-        return newText === reversedNewText;
+        let reversedCharArray = str2chars(allAlphaText);
+        reversedCharArray = reversedCharArray.map(char => char).reverse();
+        const reversedNewText = reversedCharArray.join('');
+
+        return allAlphaText === reversedNewText;
     }
 
 
