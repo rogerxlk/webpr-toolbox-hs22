@@ -7,7 +7,79 @@
 <body>
 <script>
 
-    
+    // const list = ['a', 'bb', 'ccc', 'dddd'];
+    // const result = list.reduce( (count, str) => ++count, 0);
+    // document.writeln(result === list.length);
+
+    // const list = ['a', 'bb', 'ccc', 'dddd'];
+    // const result = list.reduce( count => ++count);
+    // document.writeln(result === list.length);
+
+    // const list = ['a', 'bb', 'ccc', 'dddd'];
+    // const result = list.reduce( count => count++, 0);
+    // document.writeln(result === list.length);
+
+    // const list = ['a', 'bb', 'ccc', 'dddd'];
+    // const result = list.splice(0,0,'x','y');
+    // document.writeln(list[0] === 'a'
+    //     && list[1] === 'x'
+    //     && list[2] === 'y'
+    //     && list[3] === 'bb'
+    // );
+
+    // const list = ['a', 'bb', 'ccc', 'dddd'];
+    // const result = list.splice(1,0,'x','y');
+    // document.writeln(list[0] === 'a'
+    //     && list[1] === 'x'
+    //     && list[2] === 'y'
+    //     && list[3] === 'bb'
+    // );
+
+    // const list = ['a', 'bb', 'ccc', 'dddd'];
+    // const result = list.splice(0,0);
+    // document.writeln(list.length === 4);
+    //
+    // const list = ['a', 'bb', 'ccc', 'dddd'];
+    // const result = list.splice(0,0);
+    // document.writeln(list.length === 4);
+
+
+    // function handle(callback){
+    //     const result = [];
+    //     callback(result);
+    //     return result;
+    // }
+    //
+    // // let it =[];
+    // document.writeln(handle( it.push(1) ).length === 1)
+
+
+    // const idPromise = x => new Promise ( resolve => resolve(x));
+    //
+    // idPromise(1)
+    //     .then( it => { document.writeln(it); return it; })
+    //     .then( it => document.writeln(it));
+
+    // const idPromise = x => new Promise ( resolve => resolve(x));
+    //
+    // document.writeln(idPromise(1));
+
+
+    const Observable = value => {
+        const listeners =[];
+        return {
+            onChange: callback => listeners.push(callback),
+            getValue: () => value,
+            setValue: val => {
+                if (value === val) return;
+                value = val;
+                listeners.forEach(listener => listener(val));
+            }
+        }
+    };
+
+    const color = Observable('white');
+    document.writeln(color.getValue() === 'white');
 
 </script>
 </body>
